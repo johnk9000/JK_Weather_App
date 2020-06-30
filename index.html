@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
@@ -18,21 +19,21 @@
         <div id="windy"></div>
         <div class=aside id="locale-list"></div>
         <div class="aside-cont">
-            <div class="bins">
+            <div class="bins aside-head">
                 <h2><span>Points of Interest</span></h2>
             </div>
-            <div class="bins search-bin" id="search-bin">
+            <div class="bins search-bin" id="search">
                 <input type='text' id="localSearch">
                 <button>🔍</button>
             </div>
-            <div class="bins location" id="locale-1">
-                <button id="locale-1"><span id="localeText-1">Austin, Texas</span></button>
+            <div class="bins location">
+                <button id="locale-1">Austin, Texas</button>
             </div>
             <div class="bins location">
-                <button id="locale-1"><span id="localeText-2"></span>Pensacola, Florida</button>
+                <button id="locale-1">Pensacola, Florida</button>
             </div>
             <div class="bins location">
-                <button id="locale-1"><span id="localeText-2"></span>Lompoc, California</button>
+                <button id="locale-1">Lompoc, California</button>
             </div>
         </div>
         <footer class="fixed-overlay">
@@ -61,6 +62,7 @@
                   </div>
             </div>
         </footer>
+        <script src="script.js"></script>
         <script src="logic.js"></script>
     </div>
 
