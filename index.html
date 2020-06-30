@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
@@ -19,41 +20,26 @@
         <div id="windy"></div>
         <div class=aside id="locale-list"></div>
         <div class="aside-cont">
-            <div class="bins aside-head">
-                <h2><span>Points of Interest</span></h2>
-            </div>
-            <div class="bins search-bin" id="search">
-                <input type='text' id="localSearch">
-                <button>🔍</button>
-            </div>
-            <div class="bins location">
-                <button id="locale-1">Austin, Texas</button>
-            </div>
-            <div class="bins location">
-                <button id="locale-1">Pensacola, Florida</button>
-            </div>
-            <div class="bins location">
-                <button id="locale-1">Lompoc, California</button>
-            </div>
+            <!-- Aside Bins -->
         </div>
         <footer class="fixed-overlay">
             <div class="overlay-1">
                 <p id="overlayID">[ OVERLAYS ]</p>
               <button class="overlay-navionics"> DEPTH-MAP </button>
-              <button class="overlay-google"> GOOGLE </button>
+              <button class="overlay-google"> G-MAPS </button>
               <button class="overlay-G-Earth-ro"> G-EARTH</button>
           </div>
             <div class="overlay-2">
                 <div class="dropdown">
-                    <span><br>Backgrounds ∇</span>
+                    <span><br>Backgrounds ∨ </span>
                     <div class="dropdown-content">
                       <p>Depth Map</p>
                       <p>Google Maps</p>
-                      <p>Google Earth Pro</p>
+                      <p>Google ∃arth Pro</p>
                     </div>
                   </div>
                   <div class="dropdown">
-                    <span><br>Overlay Opacity ∇</span>
+                    <span><br>Overlay Opacity ∨ </span>
                     <div class="dropdown-content">
                       <p>100%</p>
                       <p>50%</p>

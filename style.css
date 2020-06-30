@@ -14,6 +14,8 @@ html, body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     color: #333;
+    margin: 0;
+    padding: 0;
     }
 
 h2 {
@@ -40,11 +42,16 @@ Search, Locale buttons, settings menu */
     left: 0;
     top: 0;
     z-index: 1;
-    height: calc(1.1 *var(--aside-height));
+    height: calc(var(--aside-height));
     width: var(--aside-width);
     background-color: whitesmoke;
     opacity: 0.25;
     backdrop-filter: blur(5px);
+}
+
+.aside:hover {
+    height: calc(var(--aside-height - 200px));
+    animation: ease-in-out 1.25s;
 }
 
 .aside-cont {
@@ -63,6 +70,11 @@ Search, Locale buttons, settings menu */
     justify-content: space-around;
     align-content: flex-start;
     backdrop-filter: blur(5px);
+}
+
+.aside-cont:hover {
+    height: calc(var(--aside-height - 200px));
+    animation: ease-in-out 1.25s;
 }
 
 .aside-cont > button:hover {
@@ -153,7 +165,7 @@ overlay-1, overlay 2, and dropdowns*/
     color: white;
     backdrop-filter: blur(15px);
     box-shadow: 5px 0px 10px -5px rgba(0, 0, 0, 0.420);
-    animation: ease-in-out 0.5s;
+    animation: ease-in-out 1.25s;
 }
 
 .overlay-1 {

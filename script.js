@@ -63,3 +63,5 @@ $('#search').button.on("click", function(e){
 $('.bins').on('click', function(e) {
 
 });
+
+renderBins();
