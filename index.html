@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display&family=Dosis&family=Montserrat&family=Raleway&display=swap"
+        rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="windy"></div>
+        <div class=aside id="locale-list"></div>
+        <div class="aside-cont">
+            <div class="bins">
+                <h2><span>Points of Interest</span></h2>
+            </div>
+            <div class="bins search-bin" id="search-bin">
+                <input type='text' id="localSearch">
+                <button>🔍</button>
+            </div>
+            <div class="bins location" id="locale-1">
+                <button id="locale-1"><span id="localeText-1">Austin, Texas</span></button>
+            </div>
+            <div class="bins location">
+                <button id="locale-1"><span id="localeText-2"></span>Pensacola, Florida</button>
+            </div>
+            <div class="bins location">
+                <button id="locale-1"><span id="localeText-2"></span>Lompoc, California</button>
+            </div>
+        </div>
+        <footer class="fixed-overlay">
+            <div class="overlay-1">
+                <p id="overlayID">[ OVERLAYS ]</p>
+              <button class="overlay-navionics"> DEPTH-MAP </button>
+              <button class="overlay-google"> GOOGLE </button>
+              <button class="overlay-G-Earth-ro"> G-EARTH</button>
+          </div>
+            <div class="overlay-2">
+                <div class="dropdown">
+                    <span><br>Backgrounds ∇</span>
+                    <div class="dropdown-content">
+                      <p>Depth Map</p>
+                      <p>Google Maps</p>
+                      <p>Google Earth Pro</p>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <span><br>Overlay Opacity ∇</span>
+                    <div class="dropdown-content">
+                      <p>100%</p>
+                      <p>50%</p>
+                      <p>25%</p>
+                    </div>
+                  </div>
+            </div>
+        </footer>
+        <script src="logic.js"></script>
+    </div>
+
+</body>
+
+</html>
