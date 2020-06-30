@@ -31,6 +31,21 @@ iframe {
 .hide {
     display: none;
 }
+
+.container {
+    display: flex;
+    flex:100%;
+    width: 100%;
+    height: 98%;
+    background-color: rgba(0,0,0,0.2);
+}
+.windy-cont {
+    display: flex;
+    flex:100%;
+    width: 100%;
+    height: 100%;
+}
+
 /* ALL `ASIDE` |================|
 components and content here:
 Search, Locale buttons, settings menu */
@@ -65,14 +80,6 @@ Search, Locale buttons, settings menu */
     backdrop-filter: blur(5px);
 }
 
-.aside-cont > button:hover {
-    background-color: #333;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
-    border-color: #999;
-}
-
-
 .bins {
     text-align: center;
     text-justify: center;
@@ -97,18 +104,20 @@ Search, Locale buttons, settings menu */
     opacity: 0.75;
 }
 
-.container {
-    display: flex;
-    flex:100%;
-    width: 100%;
-    height: 98%;
-    background-color: rgba(0,0,0,0.2);
+.location > button:active {
+    color: #333;
+    font-weight: 600;
+    background-color: white;
+    box-shadow: 0 5px 10px -8px black;
+    opacity: 0.25;
+    backdrop-filter: blur(10px);
 }
-.windy-cont {
-    display: flex;
-    flex:100%;
-    width: 100%;
-    height: 100%;
+
+.location > button:hover {
+    background-color: #333;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    border-color: #999;
 }
 
 .search-bin {
