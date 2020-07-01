@@ -1,8 +1,30 @@
+//=========Open_Weather====================
+var openOpts = {
+    'key': 'fd15340e692655f40245e097f416fdec',
+    'city': 'Austin',
+    'state': 'TX',
+    'country': 'US',
+    'coord': {
+        'lat': 30.25,
+        'lon': -97.75,
+    },
+    'weather': 'clear',
+    'main': {
+        'temp': 1,
+        'feels_like': 2,
+        'temp_min': 3,
+        'temp_max': 4,
+        'pressure': 5,
+        'humidity': 6,
+    }
+};
+
+let result;
 var binGen = $('.bins');
 var locateSearch = $('#localSearch');
 var localeGen = $('#locale-');
 
-var destination = ['Austin, TX', 'Pensacola, FL', 'Lompoc, CA'];
+var destination = ['Austin', 'Pensacola', 'Lompoc'];
 
 
 
@@ -36,6 +58,7 @@ function renderBins(){
             inptGen.attr('id', 'localSearch');
             var btnGen = $('<button>');
             btnGen.text('🔍');
+            btnGen.attr('id', 'search-button');
             //console.log(this);
             $('#search').append(inptGen);
             $('#search').append(btnGen);
@@ -58,17 +81,10 @@ function renderBins(){
     divGen.addClass('location');
     divGen.attr('id', 'bin-'+ i)
     binSpot.append(divGen)
-
-    var btnGen = $('<button>');
-            btnGen.attr('id', 'locale-' + i);
-            var loco = usrSearch;
-            btnGen.text(loco);
-                console.log(loco + i);
-            $('#bin-' + i).append(btnGen);
 };
 
 function renderWeather () {
-    fetchWeather();
+
     let len = 5;
     var weather = $('.weather');
     weather.empty();
@@ -118,7 +134,6 @@ function renderWeather () {
     lon.text('LONGITUDE: ' + openOpts.coord.lon + "°");
 
 }
-//let result;
 
 var cityList = {
     "id": 4671654,
@@ -131,37 +146,6 @@ var cityList = {
     }
 }
 
-//=========Open_Weather====================
-var openOpts = {
-    'key': 'fd15340e692655f40245e097f416fdec',
-    'city': 'Austin',
-    'state': 'TX',
-    'country': 'US',
-    'coord': {
-        'lat': 30.25,
-        'lon': -97.75,
-    },
-    'weather': 'clear',
-    'main': {
-        'temp': 1,
-        'feels_like': 2,
-        'temp_min': 3,
-        'temp_max': 4,
-        'pressure': 5,
-        'humidity': 6,
-    }
-};
-
-let result;
-
-var isLocalStore = false;
-
-while(isLocalStore == false) {
-localStorage.setItem("usrInputs", "");
-    if(localStorage.getItem("userInputs") == ""){
-        isLocalStore == true;
-    }
-}
 
 function fetchWeather() {
     var usrSearch = openOpts.city;
@@ -171,7 +155,8 @@ function fetchWeather() {
         url: queryURL,
         method: "GET"
     }).then(function(result) {
-            console.log(result);
+            console.log("fetched results");
+            //console.log(result);
         openOpts.weather = result.weather[0].main; 
         openOpts.main.temp = result.main.temp;
         openOpts.main.feels_like = result.main.feels_like;
@@ -183,9 +168,7 @@ function fetchWeather() {
         openOpts.coord.lon = result.coord.lon;
         openOpts.city = result.name;
 
-        console.log(openOpts);
-
-        destination.push(openOpts.city);
+            //console.log(openOpts);
     });
 }
 
@@ -197,26 +180,67 @@ function fetchLocale() {
     }
 }
 
+function windyLocate () {
+    var latitude = openOpts.coord.lat;
+    var longitude = openOpts.coord.lon;
+    var city = openOpts.city;
+    
+    var opts = {
+        key: 'l89NU2nczduLb4zwodOBPiTmZXF1Elx9',
+        verbose: true,
+        lat: (30.25 - 1.5),
+        lon: -97.75, //ATX coordinates
+        zoom: 8,
+    };
+
+    windyInit(opts, windyAPI => {
+
+        const { map } = windyAPI; //.map is instance of Leaflet map
+    
+        console.log(windyAPI);
+    
+        L.popup()
+            .setLatLng([latitude, longitude])
+            .setContent(city)
+            .openOn(map)
+    });
+    
+    var map = L.map('windy').setView([51.505, -0.09], 13);
+}
+
 // Event listeners
 $(document).on('click', "#search-button", function(e) {
     console.log('button clicked');
     e.preventDefault();
-    while($('#search').val().trim() !== "") {
+    while($('#localSearch').val().trim() !== "") {
         console.log('refreshing components');
-    var usrSearch = $('#search').val().trim();
-    console.log(usrSearch);
+    var usrSearch = $('#localSearch').val().trim();
+        console.log("searching: " + usrSearch);
+        destination.push(usrSearch);
+    openOpts.city = usrSearch;
     
     fetchWeather();
-    renderWeather();
-    renderBins();
+    setInterval(renderWeather(), 800);
+    setInterval(windyLocate(), 900);
+    renderBins()
+let index = destination.length
+console.log(index)
+        $('#locale-' + index).addClass('active');
+        
     }
 });
 
-$(document).on('click', '.bins', function(e) {
+$(document).on('click', '.location', function(e) {
+    renderBins();
     var index = $(this).attr('index');
-    usrSearch = destination[index];
+    $('#locale-' + index).addClass('active');
+    index = parseInt(index) - 1;
+    var usrSearch = destination[index];
+    console.log("Switching to: " + usrSearch);
+    openOpts.city = usrSearch;
     fetchWeather();
     renderWeather();
+    setInterval(windyLocate(), 900);
 });
 
 setInterval(fetchWeather(), 1500);
