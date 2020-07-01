@@ -8,6 +8,7 @@
     --overlay-width: 420px;
     --overlay-right: 200px;
     --overlay-bottom: 200px;
+    --W-width: 420px;
 }
 
 html, body { 
@@ -25,6 +26,14 @@ h2 {
     text-shadow: 1px 1px 1px 1px #333;
 }
 
+h3 {
+    position: relative;
+    color: #999;
+    font-weight: 200;
+    margin: 0;
+    left: 50px;
+}
+
 iframe {
     display: flex;
     flex: 100%
@@ -32,6 +41,7 @@ iframe {
 
 .hide {
     display: none;
+    
 }
 /* ALL `ASIDE` |================|
 components and content here:
@@ -143,6 +153,71 @@ Search, Locale buttons, settings menu */
     width: 40px;
     border-radius: 4px;
     border: 1px solid white;
+}
+/* ALL `WEATHER` |================|
+componenets and content here:
+temp-high, temp-low
+temp
+latitude, logitude*/
+
+.weather {
+    display: flex;
+    position: fixed;
+    right: 200px;
+    top: 420px;
+    width: var(--W-width);
+    min-width: calc(var(--W-width) - 60px);
+    min-height: 120px;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0px 2px 10px 1px black;
+    opacity: 0.75;
+    backdrop-filter: blur(10px);
+    padding: 20px 0px;
+}
+
+.top-row, .mid-row, .bot-row {
+    display: flex;
+    position: relative;
+    flex: 100%;
+    flex-direction: row;
+    width: 100%;
+    min-height: 40px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mid-row {
+    margin: 20px 0px;
+}
+
+#mid {
+    flex: auto;
+    color: #333;
+    font-size: 2rem;
+    position: relative;
+    height: 50%;
+    width: 50%;
+}
+
+#flank {
+    flex: auto;
+    color: #666;
+    font-size: 1 rem;
+    font-weight: 200;
+    position: relative;
+    height: 25%;
+    width: 50%;
+    
+}
+
+#mid, #flank {
+    margin: 0;
+    padding: auto;
+    text-align: center;
+    text-justify: center;
 }
 /* ALL `OVERLAY` |================|
 components and content here:
