@@ -1,6 +1,5 @@
 :root {
     --hue-blue: 240;
-    --hue-active: 30;
     --aside-height: 100%;
     --aside-width: 300px;
     --asi-cont-height: 210px;
@@ -9,15 +8,12 @@
     --overlay-width: 420px;
     --overlay-right: 200px;
     --overlay-bottom: 200px;
-    --W-width: 420px;
 }
 
 html, body { 
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     color: #333;
-    margin: 0;
-    padding: 0;
     }
 
 h2 {
@@ -27,17 +23,13 @@ h2 {
     text-shadow: 1px 1px 1px 1px #333;
 }
 
-h3 {
-    position: relative;
-    color: #999;
-    font-weight: 200;
-    margin: 0;
-    left: 50px;
-}
-
 iframe {
     display: flex;
     flex: 100%
+}
+
+.hide {
+    display: none;
 }
 
 .container {
@@ -54,10 +46,6 @@ iframe {
     height: 100%;
 }
 
-.hide {
-    display: none;
-    
-}
 /* ALL `ASIDE` |================|
 components and content here:
 Search, Locale buttons, settings menu */
@@ -67,16 +55,11 @@ Search, Locale buttons, settings menu */
     left: 0;
     top: 0;
     z-index: 1;
-    height: calc(var(--aside-height));
+    height: calc(1.1 *var(--aside-height));
     width: var(--aside-width);
     background-color: whitesmoke;
     opacity: 0.25;
     backdrop-filter: blur(5px);
-}
-
-.aside:hover {
-    height: calc(var(--aside-height - 200px));
-    animation: ease-in-out 1.25s;
 }
 
 .aside-cont {
@@ -96,19 +79,6 @@ Search, Locale buttons, settings menu */
     align-content: flex-start;
     backdrop-filter: blur(5px);
 }
-
-.aside-cont:hover {
-    height: calc(var(--aside-height - 200px));
-    animation: ease-in-out 1.25s;
-}
-
-.aside-cont > button:hover {
-    background-color: #333;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
-    border-color: #999;
-}
-
 
 .bins {
     text-align: center;
@@ -134,10 +104,20 @@ Search, Locale buttons, settings menu */
     opacity: 0.75;
 }
 
-.active {
-    background-color: white;
+.location > button:active {
+    color: #333;
     font-weight: 600;
-    border: 1.5px solid hsl(var(--hue-active), 90%, 50%) !important;
+    background-color: white;
+    box-shadow: 0 5px 10px -8px black;
+    opacity: 0.25;
+    backdrop-filter: blur(10px);
+}
+
+.location > button:hover {
+    background-color: #333;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    border-color: #999;
 }
 
 .search-bin {
@@ -161,71 +141,6 @@ Search, Locale buttons, settings menu */
     border-radius: 4px;
     border: 1px solid white;
 }
-/* ALL `WEATHER` |================|
-componenets and content here:
-temp-high, temp-low
-temp
-latitude, logitude*/
-
-.weather {
-    display: flex;
-    position: fixed;
-    right: 200px;
-    top: 420px;
-    width: var(--W-width);
-    min-width: calc(var(--W-width) - 60px);
-    min-height: 120px;
-    background-color: white;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    box-shadow: 0px 2px 10px 1px black;
-    opacity: 0.75;
-    backdrop-filter: blur(10px);
-    padding: 20px 0px;
-}
-
-.top-row, .mid-row, .bot-row {
-    display: flex;
-    position: relative;
-    flex: 100%;
-    flex-direction: row;
-    width: 100%;
-    min-height: 40px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.mid-row {
-    margin: 20px 0px;
-}
-
-#mid {
-    flex: auto;
-    color: #333;
-    font-size: 2rem;
-    position: relative;
-    height: 50%;
-    width: 50%;
-}
-
-#flank {
-    flex: auto;
-    color: #666;
-    font-size: 1 rem;
-    font-weight: 200;
-    position: relative;
-    height: 25%;
-    width: 50%;
-    
-}
-
-#mid, #flank {
-    margin: 0;
-    padding: auto;
-    text-align: center;
-    text-justify: center;
-}
 /* ALL `OVERLAY` |================|
 components and content here:
 overlay-1, overlay 2, and dropdowns*/
@@ -247,7 +162,7 @@ overlay-1, overlay 2, and dropdowns*/
     color: white;
     backdrop-filter: blur(15px);
     box-shadow: 5px 0px 10px -5px rgba(0, 0, 0, 0.420);
-    animation: ease-in-out 1.25s;
+    animation: ease-in-out 0.5s;
 }
 
 .overlay-1 {
