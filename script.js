@@ -167,6 +167,9 @@ function fetchLocale() {
 }
 
 function windyLocate () {
+    fetchWeather();
+    
+    setTimeout(function() {
     var latitude = openOpts.coord.lat;
     var longitude = openOpts.coord.lon;
     var city = openOpts.city;
@@ -180,7 +183,7 @@ function windyLocate () {
     };
 
     windyInit(opts, windyAPI => {
-
+        
         const { map } = windyAPI; //.map is instance of Leaflet map
     
         console.log(windyAPI);
@@ -190,7 +193,8 @@ function windyLocate () {
             .setContent(city)
             .openOn(map)
     });
-
+    var map = L.map('windy').setView([latitude, longitude], 8);
+    }, 800);
 }
 
 // Event listeners
@@ -205,8 +209,8 @@ $(document).on('click', "#search-button", function(e) {
     openOpts.city = usrSearch;
     
     fetchWeather();
-    setInterval(renderWeather(), 800);
-    setInterval(windyLocate(), 900);
+    setTimeout(renderWeather(), 800);
+    setTimeout(windyLocate(), 900);
     renderBins()
 let index = destination.length
 console.log(index)
@@ -225,12 +229,12 @@ $(document).on('click', '.location', function(e) {
     openOpts.city = usrSearch;
     fetchWeather();
     renderWeather();
-    setInterval(windyLocate(), 900);
+    setTimeout(windyLocate(), 1500);
 });
 
-setInterval(fetchWeather(), 1500);
-setInterval(renderWeather(), 2000);
-setInterval(fetchLocale(), 2100);
-setInterval(renderBins(), 2200);
+setTimeout(fetchWeather(), 1500);
+setTimeout(renderWeather(), 2000);
+setTimeout(fetchLocale(), 2100);
+setTimeout(renderBins(), 2200);
 
 //==DOC END==
