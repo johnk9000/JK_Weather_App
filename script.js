@@ -10,10 +10,10 @@ var openOpts = {
     },
     'weather': 'clear',
     'main': {
-        'temp': 1,
-        'feels_like': 2,
-        'temp_min': 3,
-        'temp_max': 4,
+        'temp': 300,
+        'feels_like': 305,
+        'temp_min': 275,
+        'temp_max': 310,
         'pressure': 5,
         'humidity': 6,
     }
@@ -173,12 +173,12 @@ function windyLocate () {
     var latitude = openOpts.coord.lat;
     var longitude = openOpts.coord.lon;
     var city = openOpts.city;
-    
+    latitude - latitude - 2.5;
     var opts = {
         key: 'l89NU2nczduLb4zwodOBPiTmZXF1Elx9',
         verbose: true,
-        lat: (30.25 - 1.5),
-        lon: -97.75, //ATX coordinates
+        lat: latitude,
+        lon: longitude, //ATX coordinates
         zoom: 8,
     };
 
@@ -186,14 +186,16 @@ function windyLocate () {
         
         const { map } = windyAPI; //.map is instance of Leaflet map
     
-        console.log(windyAPI);
+        //console.log(windyAPI);
     
         L.popup()
             .setLatLng([latitude, longitude])
             .setContent(city)
             .openOn(map)
     });
-    var map = L.map('windy').setView([latitude, longitude], 8);
+    
+    var map = L.map('windy').setView([(latitude), longitude], 8);
+
     }, 800);
 }
 
@@ -232,8 +234,8 @@ $(document).on('click', '.location', function(e) {
     setTimeout(windyLocate(), 1500);
 });
 
-setTimeout(fetchWeather(), 1500);
-setTimeout(renderWeather(), 2000);
+setTimeout(fetchWeather(), 500);
+setTimeout(renderWeather(), 1500);
 setTimeout(fetchLocale(), 2100);
 setTimeout(renderBins(), 2200);
 

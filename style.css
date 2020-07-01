@@ -90,7 +90,12 @@ Search, Locale buttons, settings menu */
 }
 
 .aside:hover {
-    height: calc(var(--aside-height - 200px));
+    height: 80%;
+    animation: ease-in-out 1.25s;
+}
+
+.aside-cont:hover {
+    height: 80%;
     animation: ease-in-out 1.25s;
 }
 
@@ -195,9 +200,10 @@ latitude, logitude*/
     flex-wrap: wrap;
     justify-content: space-around;
     box-shadow: 0px 2px 10px 1px black;
-    opacity: 0.75;
-    backdrop-filter: blur(10px);
+    opacity: 0.66;
+    backdrop-filter: blur(15px);
     padding: 20px 0px;
+    z-index: 1;
 }
 
 .top-row, .mid-row, .bot-row {
