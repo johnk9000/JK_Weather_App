@@ -88,7 +88,7 @@ function renderWeather () {
     let len = 5;
     var weather = $('.weather');
     weather.empty();
-// top-row section
+    // top-row section
     weather.append($('<div class="top-row">'));
     $('.top-row').append('<div class="temp-high" id = "flank">');
     $('.top-row').append('<div class="temp-low" id = "flank">');
@@ -105,7 +105,7 @@ function renderWeather () {
     dat = (dat - 273.15) * 1.8 + 32;
     dat = Math.round(dat);
     lowTemp.text("LOW: " + dat + "°F");
-// mid-row section
+    // mid-row section
     var hTag = $('<h3>');
     hTag.text('CURRENTLY');
     weather.append(hTag)
@@ -122,7 +122,7 @@ function renderWeather () {
     dat = Math.round(dat);
     temp.text(dat + "°F");
     
-//bottom-row section
+    //bottom-row section
     weather.append($('<div class="bot-row">'));
     $('.bot-row').append('<div class="latitude" id = "flank">');
     $('.bot-row').append('<div class="longitude" id = "flank">');
@@ -132,20 +132,7 @@ function renderWeather () {
     
     lat.text('LATITUDE: ' + openOpts.coord.lat + "°");
     lon.text('LONGITUDE: ' + openOpts.coord.lon + "°");
-
 }
-
-var cityList = {
-    "id": 4671654,
-    "name": "Austin",
-    "state": "TX",
-    "country": "US",
-    "coord": {
-      "lon": -97.743057,
-      "lat": 30.267151,
-    }
-}
-
 
 function fetchWeather() {
     var usrSearch = openOpts.city;
@@ -171,7 +158,6 @@ function fetchWeather() {
             //console.log(openOpts);
     });
 }
-
 
 function fetchLocale() {
     let userInputs = "";
@@ -204,8 +190,7 @@ function windyLocate () {
             .setContent(city)
             .openOn(map)
     });
-    
-    var map = L.map('windy').setView([51.505, -0.09], 13);
+
 }
 
 // Event listeners
