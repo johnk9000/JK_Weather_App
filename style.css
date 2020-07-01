@@ -63,7 +63,7 @@ iframe {
     display: flex;
     flex:100%;
     width: 100%;
-    height: 98%;
+    height: 100%;
     background-color: rgba(0,0,0,0.2);
 }
 .windy-cont {
@@ -352,4 +352,51 @@ overlay-1, overlay 2, and dropdowns*/
     width: 100%;
     height: 100%;
     background-color: #999;
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        height: 200%;
+        width: 100%;
+    }
+
+   
+    
+    .aside, .aside-cont {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        flex-wrap: wrap;
+        flex-direction: column;
+        top: 85%;
+    }
+
+    .aside-cont > .bins {
+        margin: 0;
+    }
+    .weather {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        width: 90%;
+    }
+
+    .overlay-1, .overlay-2 {
+        position: absolute;
+        width: 100%;
+        top: 30%;
+        left: 0%;   
+    }
+
+    #map-container {
+        width: 200%;
+    }
+
+    #windy {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        background-color: #999;
+    }
 }
