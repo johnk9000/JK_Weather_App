@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/open-weather/2.0.0/openweather.min.js'></script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=YourBingMapsKey&callback=loadMapScenario' async defer></script>
+    
+    
+    <link rel="stylesheet" type="text/css" href="./style.css"
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display&family=Dosis&family=Montserrat&family=Raleway&display=swap"
+        rel="stylesheet" />
+    <title>Weather Nav App - JK</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="windy"></div>
+        <div class="weather show">
+          <div class="row top-row">
+              <div class="temp-high" id = "flank">HIGH: 95</div>
+              <div class="temp-low"id = "flank">LOW 75</div>
+          </div>
+        <h3>CURRENTLY</h3>
+          <div class="row mid-row">
+            
+            <div class="cond" id="mid">clear</div>
+            <div class="temp" id="mid">90</div>
+              
+          </div>
+          <div class="row bot-row">
+              <div class="latitude" id = "flank">35</div>
+              <div class="longitude" id = "flank">-95</div>
+          </div>
+      </div>
+        <div class=aside id="locale-list"></div>
+        <div class="aside-cont">
+            <!-- Aside Bins -->
+            <div class="bins aside-head"><h2>Points of Interest</h2></div>
+        </div>
+        <div class="show" id="weather">
+          
+        </div>
+        <footer class="fixed-overlay">
+            <div class="overlay-1">
+                <p id="overlayID">[ OVERLAYS ]</p>
+              <button class="overlay-navionics"> DEPTH-MAP </button>
+              <button class="overlay-google"> G-MAPS </button>
+              <button class="overlay-G-Earth-pro"> G-EARTH</button>
+          </div>
+            <div class="overlay-2">
+                <div class="dropdown">
+                    <span><br>Backgrounds ∨ </span>
+                    <div class="dropdown-content">
+                      <p>Depth Map</p>
+                      <p>Google Maps</p>
+                      <p>Google ∃arth Pro</p>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <span><br>Overlay Opacity ∨ </span>
+                    <div class="dropdown-content">
+                      <p>100%</p>
+                      <p>50%</p>
+                      <p>25%</p>
+                    </div>
+                  </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+        <script src="logic.js"></script>
+    </div>
+
+</body>
+
+</html>
