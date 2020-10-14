@@ -1,4 +1,4 @@
-# HW6_Digital-Dash_JK
+# Interactive Weather App
 
 published URL: https://johnk9000.github.io/HW6_Digital-Dash_JK/
 
