@@ -8,6 +8,8 @@ Weather data provided by Open Weather. <docs link>
 
 User searches for location by cityname and the weather card will display the weather information at that location.  The background map will also pan to that location based on the coordinates provided by Open Weather. User searches will be saved in the side bar and clicking on the button will return fields for that location.
 
+<img src="https://drive.google.com/uc?id=1Zz1mIRAfdLKT0EcR1yDbj2QboE6I_9k9">
+
 ## Notes
 * Background module may not render on first visit. Please refresh if it does not load.
 * Background module may not render after moving to new location. Click locale button again in order to refresh the module.
